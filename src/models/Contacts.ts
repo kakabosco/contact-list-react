@@ -1,4 +1,4 @@
-class Contact {
+class ContactClass {
   name: string
   email: string
   phone: string
@@ -12,4 +12,4 @@ class Contact {
   }
 }
 
-export default Contact
+export default ContactClass

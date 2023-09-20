@@ -9,21 +9,21 @@ type ContactsState = {
 const initialState: ContactsState = {
   contacts: [
     {
-      name: 'Contato 1',
-      email: 'contato1@example.com',
-      phone: '00 00000-0000',
+      name: 'Kaique Bosco',
+      email: 'kaique.bosco@hotmail.com',
+      phone: '22 99848-0018',
       id: 1
     },
     {
-      name: 'Contato 2',
-      email: 'contato2@example.com',
-      phone: '00 00000-0000',
+      name: 'Rafaella',
+      email: 'rafaella@outlook.com',
+      phone: '22 91234-5678',
       id: 2
     },
     {
-      name: 'Contato 3',
-      email: 'contato3@example.com',
-      phone: '00 00000-0000',
+      name: 'Mayra',
+      email: 'mayra@gmail.com',
+      phone: '22 98765-4321',
       id: 3
     }
   ]

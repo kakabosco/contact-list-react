@@ -19,9 +19,13 @@ export const Circle = styled(Link)`
     width: 48px;
     bottom: 20px;
     right: 20px;
+  }
+`
 
-    img {
-      width: 24px;
-    }
+export const Add = styled.img`
+  width: 44px;
+
+  @media (max-width: 600px) {
+    width: 32px;
   }
 `

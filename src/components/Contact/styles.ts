@@ -13,17 +13,31 @@ export const ContactContainer = styled.div`
   }
 `
 
-export const Name = styled.h3`
-  margin-bottom: 12px;
+export const Name = styled.textarea`
+  display: block;
+  align-items: center;
+  max-width: 300px;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: bold;
   color: #04535d;
+  resize: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
 
   @media (max-width: 600px) {
     font-size: 16px;
   }
 `
 
-export const Email = styled.p`
-  margin-bottom: 8px;
+export const Email = styled(Name)`
+  margin-bottom: 0px;
+  font-size: 16px;
+  font-weight: normal;
   color: #0e8291;
 
   @media (max-width: 600px) {
@@ -31,17 +45,13 @@ export const Email = styled.p`
   }
 `
 
-export const Phone = styled.p`
-  color: #0e8291;
-
-  @media (max-width: 600px) {
-    font-size: 14px;
-  }
+export const Phone = styled(Email)`
+  margin-bottom: 16px;
 `
 
 export const ControlDiv = styled.div`
   position: relative;
-  bottom: 80px;
+  bottom: 105px;
   left: 420px;
   margin-bottom: -96px;
   display: flex;
@@ -72,4 +82,17 @@ export const ButtonEdit = styled.button`
 
 export const ButtonRemove = styled(ButtonEdit)`
   background-color: #d76565;
+  margin-bottom: 0;
+`
+
+export const ButtonSave = styled(ButtonEdit)`
+  img {
+    width: 60%;
+  }
+`
+
+export const ButtonCancel = styled(ButtonRemove)`
+  img {
+    width: 60%;
+  }
 `

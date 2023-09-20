@@ -1,8 +1,8 @@
-import { Circle } from './styles'
+import { Circle, Add } from './styles'
 
 const AddButton = () => (
-  <Circle to="/newtask">
-    <img src="plus.png" alt="Sinal de mais" />
+  <Circle to="/new-contact">
+    <Add src="plus.png" alt="Adicionar contato" />
   </Circle>
 )
 
