@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { selectFilteredContacts } from '../../store/selectors'
 import { RootReducer } from '../../store'
-import { HeaderContainer, Title, Message, Field } from './styles'
+import { HeaderContainer, Title } from '../../styles'
+import { Message, Field } from './styles'
 import { changeTerm } from '../../store/reducers/filter'
 
 const Header = () => {

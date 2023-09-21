@@ -9,21 +9,21 @@ type ContactsState = {
 const initialState: ContactsState = {
   contacts: [
     {
-      name: 'Kaique Bosco',
+      name: 'Kaique',
       email: 'kaique.bosco@hotmail.com',
-      phone: '22 99848-0018',
+      phone: '(22) 99848-0018',
       id: 1
     },
     {
       name: 'Rafaella',
       email: 'rafaella@outlook.com',
-      phone: '22 91234-5678',
+      phone: '(22) 91234-5678',
       id: 2
     },
     {
       name: 'Mayra',
       email: 'mayra@gmail.com',
-      phone: '22 98765-4321',
+      phone: '(22) 98765-4321',
       id: 3
     }
   ]
@@ -33,16 +33,37 @@ const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
-    addContact: (state, action: PayloadAction<Contact>) => {
-      const contactExists = state.contacts.some(
-        (contact) =>
-          contact.name === action.payload.name &&
-          contact.email === action.payload.email &&
-          contact.phone === action.payload.phone
+    addContact: (state, action: PayloadAction<Omit<Contact, 'id'>>) => {
+      const contactExists = state.contacts.find(
+        (c) =>
+          c.name.toLowerCase() === action.payload.name.toLowerCase() ||
+          c.email.toLowerCase() === action.payload.email.toLowerCase() ||
+          c.phone === action.payload.phone
       )
 
-      if (!contactExists) {
-        state.contacts.push(action.payload)
+      if (contactExists) {
+        if (
+          contactExists.name.toLowerCase() === action.payload.name.toLowerCase()
+        ) {
+          throw new Error('Nome já cadastrado')
+        }
+        if (
+          contactExists.email.toLowerCase() ===
+          action.payload.email.toLowerCase()
+        ) {
+          throw new Error('E-mail já cadastrado')
+        }
+        if (contactExists.phone === action.payload.phone) {
+          throw new Error('Telefone já cadastrado')
+        }
+      } else {
+        const lastContact = state.contacts[state.contacts.length - 1]
+
+        const newContact = {
+          ...action.payload,
+          id: lastContact ? lastContact.id + 1 : 1
+        }
+        state.contacts.push(newContact)
       }
     },
     removeContact: (state, action: PayloadAction<number>) => {
